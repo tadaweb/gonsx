@@ -31,8 +31,8 @@ func createObject() *EdgeNats {
 		Index:              2,
 		SourceAddress:      "1.1.1.1/32",
 		DestinationAddress: "10.0.1.10/32",
-		SourcePort:         80,
-		DestinationPort:    8080,
+		SourcePort:         "80",
+		DestinationPort:    "8080",
 	}
 	edgeNatsList.Nats = []EdgeNat{firstNat, secondNat}
 	return edgeNatsList
@@ -50,7 +50,7 @@ func TestCreateEndpoint(t *testing.T) {
 
 func TestCreateMarshalling(t *testing.T) {
 	createSetup()
-	expectedXML := "<nat><natRules><natRule><ruleTag>1</ruleTag><vnic>0</vnic><type>snat</type><originalAddress>10.0.0.0/8</originalAddress><translatedAddress>1.1.1.1/32</translatedAddress><description>firstNat</description></natRule><natRule><ruleTag>2</ruleTag><vnic>0</vnic><type>dnat</type><originalAddress>1.1.1.1/32</originalAddress><translatedAddress>10.0.1.10/32</translatedAddress><description>firstNat</description><originalPort>80</originalPort><translatedPort>8080</translatedPort></natRule></natRules></nat>"
+	expectedXML := "<nat><natRules><natRule><ruleTag>1</ruleTag><vnic>0</vnic><action>snat</action><originalAddress>10.0.0.0/8</originalAddress><translatedAddress>1.1.1.1/32</translatedAddress><description>firstNat</description></natRule><natRule><ruleTag>2</ruleTag><vnic>0</vnic><action>dnat</action><originalAddress>1.1.1.1/32</originalAddress><translatedAddress>10.0.1.10/32</translatedAddress><description>firstNat</description><originalPort>80</originalPort><translatedPort>8080</translatedPort></natRule></natRules></nat>"
 
 	xmlBytes, err := xml.Marshal(createEdgeNatAPI.RequestObject())
 

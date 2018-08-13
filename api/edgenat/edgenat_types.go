@@ -5,8 +5,6 @@ import "encoding/xml"
 // EdgeNats top level list object
 type EdgeNats struct {
 	XMLName xml.Name  `xml:"nat"`
-	Version string    `xml:"version"`
-	Enabled bool      `xml:"enabled"`
 	Nats    []EdgeNat `xml:"natRules>natRule"`
 }
 
