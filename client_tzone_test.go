@@ -1,8 +1,8 @@
 package gonsx
 
 import (
-	"github.com/tadaweb/gonsx/api/tzone"
 	"github.com/stretchr/testify/assert"
+	"github.com/tadaweb/gonsx/api/tzone"
 	"net/http"
 	"testing"
 )

@@ -25,7 +25,7 @@ func TestGetAllEndpoint(t *testing.T) {
 
 func TestGetAllUnMarshalling(t *testing.T) {
 	setupGetAll()
-	xmlContent := []byte("<nat><natRules></natRules></nat>")
+	xmlContent := []byte("<natRules></natRules>")
 
 	xmlerr := xml.Unmarshal(xmlContent, getAllEdgeNatsAPI.ResponseObject())
 

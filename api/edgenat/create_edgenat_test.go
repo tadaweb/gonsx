@@ -40,17 +40,17 @@ func createObject() *EdgeNats {
 
 func TestCreateMethod(t *testing.T) {
 	createSetup()
-	assert.Equal(t, http.MethodPut, createEdgeNatAPI.Method())
+	assert.Equal(t, http.MethodPost, createEdgeNatAPI.Method())
 }
 
 func TestCreateEndpoint(t *testing.T) {
 	createSetup()
-	assert.Equal(t, "/api/4.0/edges/edge-1/nat/config", createEdgeNatAPI.Endpoint())
+	assert.Equal(t, "/api/4.0/edges/edge-1/nat/config/rules", createEdgeNatAPI.Endpoint())
 }
 
 func TestCreateMarshalling(t *testing.T) {
 	createSetup()
-	expectedXML := "<nat><natRules><natRule><ruleTag>1</ruleTag><vnic>0</vnic><action>snat</action><originalAddress>10.0.0.0/8</originalAddress><translatedAddress>1.1.1.1/32</translatedAddress><description>firstNat</description></natRule><natRule><ruleTag>2</ruleTag><vnic>0</vnic><action>dnat</action><originalAddress>1.1.1.1/32</originalAddress><translatedAddress>10.0.1.10/32</translatedAddress><description>firstNat</description><originalPort>80</originalPort><translatedPort>8080</translatedPort></natRule></natRules></nat>"
+	expectedXML := "<natRules><natRule><ruleTag>1</ruleTag><vnic>0</vnic><action>snat</action><originalAddress>10.0.0.0/8</originalAddress><translatedAddress>1.1.1.1/32</translatedAddress><description>firstNat</description></natRule><natRule><ruleTag>2</ruleTag><vnic>0</vnic><action>dnat</action><originalAddress>1.1.1.1/32</originalAddress><translatedAddress>10.0.1.10/32</translatedAddress><description>firstNat</description><originalPort>80</originalPort><translatedPort>8080</translatedPort></natRule></natRules>"
 
 	xmlBytes, err := xml.Marshal(createEdgeNatAPI.RequestObject())
 

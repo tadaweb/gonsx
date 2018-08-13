@@ -1,8 +1,8 @@
 package gonsx
 
 import (
-	"github.com/tadaweb/gonsx/api/dhcprelay"
 	"github.com/stretchr/testify/assert"
+	"github.com/tadaweb/gonsx/api/dhcprelay"
 	"net/http"
 	"testing"
 )

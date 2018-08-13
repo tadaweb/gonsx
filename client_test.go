@@ -3,8 +3,8 @@ package gonsx
 import (
 	"encoding/base64"
 	"fmt"
-	"github.com/tadaweb/gonsx/api"
 	"github.com/stretchr/testify/assert"
+	"github.com/tadaweb/gonsx/api"
 	"net/http"
 	"net/http/httptest"
 	"testing"

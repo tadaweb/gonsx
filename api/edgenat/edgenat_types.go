@@ -4,8 +4,8 @@ import "encoding/xml"
 
 // EdgeNats top level list object
 type EdgeNats struct {
-	XMLName xml.Name  `xml:"nat"`
-	Nats    []EdgeNat `xml:"natRules>natRule"`
+	XMLName xml.Name  `xml:"natRules"`
+	Nats    []EdgeNat `xml:"natRule"`
 }
 
 // EdgeNat object within EdgeNats list.

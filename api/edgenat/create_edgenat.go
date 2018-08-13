@@ -15,7 +15,7 @@ func NewCreate(edgeNatList *EdgeNats, edgeID string) *CreateEdgeNatAPI {
 
 	this := new(CreateEdgeNatAPI)
 
-	this.BaseAPI = api.NewBaseAPI(http.MethodPut, "/api/4.0/edges/"+edgeID+"/nat/config", edgeNatList, new(EdgeNats))
+	this.BaseAPI = api.NewBaseAPI(http.MethodPost, "/api/4.0/edges/"+edgeID+"/nat/config/rules", edgeNatList, new(EdgeNats))
 	return this
 }
 

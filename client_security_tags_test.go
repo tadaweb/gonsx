@@ -1,8 +1,8 @@
 package gonsx
 
 import (
-	"github.com/tadaweb/gonsx/api/securitytag"
 	"github.com/stretchr/testify/assert"
+	"github.com/tadaweb/gonsx/api/securitytag"
 	"net/http"
 	"testing"
 )
