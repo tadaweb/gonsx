@@ -5,6 +5,8 @@ import "encoding/xml"
 // EdgeNats top level list object
 type EdgeNats struct {
 	XMLName xml.Name  `xml:"nat"`
+	Version string    `xml:"version"`
+	Enabled bool      `xml:"enabled"`
 	Nats    []EdgeNat `xml:"natRules>natRule"`
 }
 
@@ -13,12 +15,12 @@ type EdgeNat struct {
 	XMLName            xml.Name `xml:"natRule"`
 	Index              int      `xml:"ruleTag,omitempty"`
 	InterfaceID        int      `xml:"vnic"`
-	Type               string   `xml:"type"`
+	Type               string   `xml:"action"`
 	SourceAddress      string   `xml:"originalAddress"`
 	DestinationAddress string   `xml:"translatedAddress"`
 	Logging            bool     `xml:"loggingEnabled,omitempty"`
 	Description        string   `xml:"description,omitempty"`
 	Protocol           string   `xml:"protocol,omitempty"`
-	SourcePort         int      `xml:"originalPort,omitempty"`
-	DestinationPort    int      `xml:"translatedPort,omitempty"`
+	SourcePort         string   `xml:"originalPort,omitempty"`
+	DestinationPort    string   `xml:"translatedPort,omitempty"`
 }

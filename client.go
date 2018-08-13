@@ -90,7 +90,7 @@ func (nsxClient *NSXClient) handleResponse(api api.NSXApi, res *http.Response) e
 	if isXML(res.Header.Get("Content-Type")) && api.StatusCode() == 200 {
 		xmlerr := xml.Unmarshal(bodyText, api.ResponseObject())
 		if xmlerr != nil {
-			log.Println("ERROR unmarshalling response: ", err)
+			log.Println("ERROR unmarshalling response: ", xmlerr, bodyText)
 			return err
 		}
 		if nsxClient.debug {
